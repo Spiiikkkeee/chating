@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const socket = io('http://localhost:3000');
+  const socket = io('https://chating-1-eh40.onrender.com');
   console.log(socket.connected); // Check if the socket is connected
 
   // Handle chat messages
