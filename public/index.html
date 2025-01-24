@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Chat with Music</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('/public/evening\ dusk.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        .chat-container {
+            width: 90%;
+            max-width: 500px;
+            border: 1px solid #9B55C7;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background: #9B55C7;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .chat-messages {
+            color: white;
+            padding: 10px;
+            height: 300px;
+            overflow-y: auto;
+            border-top: 1px solid #ddd;
+        }
+
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            border: none;
+            border-top: 1px solid #ddd;
+            outline: none;
+            font-size: 1rem;
+        }
+        #sendButton {
+            padding: 10px 15px;
+            background: #9B55C7;
+            color: white;
+            border: none;
+            border-radius: 0 0 10px 0;
+            cursor: pointer;
+            font-size: 1rem;
+            outline: none;
+        }
+        #sendButton:hover {
+            background: #4500b0;
+        }
+        .chat-input-container {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+
+        .music-controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .music-controls button {
+            padding: 10px 20px;
+            background: #9B55C7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .music-controls button:hover {
+            background: #4500b0;
+        }
+        .music-controls button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>Chat with Music</h2>
+        </div>
+        <div class="chat-messages" id="messages"></div>
+        <input type="text" id="messageInput" placeholder="Type a message..." />
+        <button id="sendButton">Send</button>
+    </div>
+    <div class="music-controls">
+        <button id="playMusic">Play Music</button>
+        <button id="pauseMusic">Pause Music</button>
+    </div>
+    <audio src="/public/music.mp3" id="backgroundMusic"></audio>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
